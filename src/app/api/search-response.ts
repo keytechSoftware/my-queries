@@ -1,4 +1,4 @@
-import { ElementList } from "./element-list";
+import { Element } from "./element";
 import { ElementResponse } from "./element-response";
 
     export class SearchResponse extends ElementResponse {
