@@ -33,10 +33,14 @@ export class ServerInfoComponent implements OnInit {
     
   }
 
-  // ------------------------------------------------------------------
-  // Gets server info
-  // ------------------------------------------------------------------
-  async getServerInfo(url) {
+
+/**
+ * Gets server info
+ * 
+ * @param {string} url 
+ * @memberof ServerInfoComponent
+ */
+  async getServerInfo(url: string) {
 
     try {
       const response: ServerInfoResponse = await this.httpService.sendGetRequest(url).toPromise();

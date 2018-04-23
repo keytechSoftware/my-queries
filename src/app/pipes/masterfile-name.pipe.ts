@@ -4,12 +4,16 @@ import { HttpService } from "../services/http.service";
 import { Server } from "../shared/server";
 import { FilesResponse } from "../api/files-response";
 
+/**
+ * Asynchronous pipe that returns the name of the master file of the specified document.
+ * 
+ * @export
+ * @class MasterfileNamePipe
+ * @implements {PipeTransform}
+ */
 @Pipe({
   name: 'masterfileName'
 })
-// ------------------------------------------------------------------
-// Asynchronous pipe that returns the name of the master file of the specified document.
-// ------------------------------------------------------------------ 
 export class MasterfileNamePipe implements PipeTransform {
   constructor(private httpService: HttpService) { }
 
@@ -29,9 +33,13 @@ export class MasterfileNamePipe implements PipeTransform {
 
   }
 
-  // ------------------------------------------------------------------
-  // Gets the file extension of the master file
-  // ------------------------------------------------------------------
+/**
+ * Gets the file extension of the master file
+ * 
+ * @param {string} elementKey 
+ * @returns 
+ * @memberof MasterfileNamePipe
+ */
   async getMasterFilenameExtension(elementKey: string) { 
 
     try {

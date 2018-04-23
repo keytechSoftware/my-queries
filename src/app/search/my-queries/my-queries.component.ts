@@ -41,20 +41,28 @@ export class MyQueriesComponent implements OnInit {
       this.redoSearch(1);
   }
 
-  // ------------------------------------------------------------------
-  // Execute the query with the given page number again
-  // ------------------------------------------------------------------      
-  redoSearch(pageNumber) {
+
+  /**
+   * Execute the query with the given page number again
+   * 
+   * @param {number} pageNumber 
+   * @memberof MyQueriesComponent
+   */
+  redoSearch(pageNumber: number) {
     this.pageNumber = pageNumber;
     const queryID = Tools.getStorageValue('lastMyQueryID');
     const queryName = Tools.getStorageValue('lastMyQueryName');
     this.runQuery(queryID, queryName);
   }
 
-  // ------------------------------------------------------------------
-  // Download the master file of a keytech document
-  // ------------------------------------------------------------------    
-  async onDownloadMasterFile(elementInfo) {
+
+  /**
+   * Download the master file of a keytech document
+   * 
+   * @param {any} elementInfo 
+   * @memberof MyQueriesComponent
+   */
+  async onDownloadMasterFile(elementInfo: any) {
     var elementKey = elementInfo.value.Key;
 
     try {
@@ -65,9 +73,14 @@ export class MyQueriesComponent implements OnInit {
     }
   }
 
-  // ------------------------------------------------------------------
-  // Executes the query with the specified ID
-  // ------------------------------------------------------------------
+
+  /**
+   * Executes the query with the specified ID
+   * 
+   * @param {string} queryID 
+   * @param {string} queryName 
+   * @memberof MyQueriesComponent
+   */
   async runQuery(queryID: string, queryName: string) {
 
     this.queryName = queryName;
@@ -110,9 +123,12 @@ export class MyQueriesComponent implements OnInit {
     }      
   }
 
-  // ------------------------------------------------------------------
-  // Determines the queries of the user
-  // ------------------------------------------------------------------
+
+  /**
+   * Determines the queries of the user
+   * 
+   * @memberof MyQueriesComponent
+   */
   async getQueries() { 
     
     var username: string = Tools.getStorageValue('currentUser');

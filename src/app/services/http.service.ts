@@ -17,10 +17,14 @@ export class HttpService {
               private authService: AuthService,
               private alertService: AlertService) {}
 
-  // ------------------------------------------------------------------
-  // Sends a GET request to the server
-  // ------------------------------------------------------------------
-  sendGetRequest(webApiUrl) {
+/**
+ * Sends a GET request to the server
+ * 
+ * @param {string} webApiUrl 
+ * @returns 
+ * @memberof HttpService
+ */
+  sendGetRequest(webApiUrl: string) {
 
     const headers = this.authService.getAuthHeader();
     const options = this.getRequestOptions(headers, ResponseContentType.Json);
@@ -31,10 +35,16 @@ export class HttpService {
       .map((response: Response) => response.json())
     }
 
-  // ------------------------------------------------------------------
-  // Gets the RequestOptions 
-  // ------------------------------------------------------------------
-  private getRequestOptions(headers, responseType: ResponseContentType) {
+  /**
+   * Gets the RequestOptions
+   * 
+   * @private
+   * @param {any} headers 
+   * @param {ResponseContentType} responseType 
+   * @returns 
+   * @memberof HttpService
+   */
+  private getRequestOptions(headers: any, responseType: ResponseContentType) {
        const options = new RequestOptions( 
       {
         headers: headers,
@@ -45,10 +55,15 @@ export class HttpService {
   }
 
 
-  // ------------------------------------------------------------------
-  // Downloads the master file of a document.
-  // ------------------------------------------------------------------
-  downloadMasterFile(webApiUrl, elementKey) {
+/**
+ * Downloads the master file of a document
+ * 
+ * @param {string} webApiUrl 
+ * @param {string} elementKey 
+ * @returns 
+ * @memberof HttpService
+ */
+  downloadMasterFile(webApiUrl: string, elementKey: string) {
     this.alertService.info('Datei wird heruntergeladen...');
 
     var url = webApiUrl + "/elements/" + elementKey + "/files/masterfile";
@@ -72,9 +87,13 @@ export class HttpService {
       })
   }
 
-  // ------------------------------------------------------------------
-  // Returns the file name of the master file of a given document.
-  // ------------------------------------------------------------------  
+  /**
+   * Returns the file name of the master file of a given document
+   * 
+   * @param {string} elementKey 
+   * @returns 
+   * @memberof HttpService
+   */
   filename: string;
   getFilename(elementKey: string) { 
     return this
@@ -85,10 +104,14 @@ export class HttpService {
 
 
 
-  // ------------------------------------------------------------------
-  // Sends a GET request for a graphic to the server
-  // ------------------------------------------------------------------
-  sendGetImageRequest(webApiUrl) {
+/**
+ * Sends a GET request for a graphic to the server
+ * 
+ * @param {string} webApiUrl 
+ * @returns 
+ * @memberof HttpService
+ */
+  sendGetImageRequest(webApiUrl: string) {
 
     const headers = this.authService.getAuthHeader();
     const options = this.getRequestOptions(headers, ResponseContentType.ArrayBuffer);
